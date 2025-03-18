@@ -89,6 +89,9 @@
       background-color: #2AABEE;
     }
 
+    .google:hover {
+      background-color: #ff4500;}
+
     .social {
       position: relative;
       margin: 10px;
@@ -142,6 +145,10 @@
       </div>
       <!-- End youtube Icon -->
 
+       <div id="google" onclick="navigate(this.id)" class="social google">
+        <span class="icon"><i class="fa-brands fa-google"></i></span>
+      </div>
+
      
     </div>
 
@@ -184,9 +191,10 @@
         else if (id === "pinterest") {
           window.open("https://www.pinterest.com/", '_blank').focus(); //Add the url to your pinterest account
         }
-        else if (id === "telegram") {
-          window.open("https://web.telegram.org/", '_blank').focus(); //Add the url to your telegram account
+        else if (id === "google") {
+          window.open("https://google.com/", '_blank').focus(); //Add the url to your telegram account
         }
+        
       }
 
     </script>
