@@ -93,25 +93,25 @@
   
   <div class="button-cards">
     <div class="card-button">
-      <a id=realtor-portal onclick="navigate(this.id)" href="notion://iworkwithjack.notion.site/REALTOR-PARTNER-PORTAL-579f6cb4520a4c15a4b2714ff3ca54ae?pvs=4" target ="_blank" >
+      <a id="realtor-portal" onclick="navigate(this.id)" href="https://iworkwithjack.notion.site/REALTOR-PARTNER-PORTAL-579f6cb4520a4c15a4b2714ff3ca54ae?pvs=4" target ="_blank" >
       <div class="card-icon">?</i></div>
       <div class="card-text">Access Realtor Partner Portal</div>
       </a>
     </div>
     <div class="card-button">
-      <a href="https://www.notion.so/iworkwithjack/Jack-s-Events-1ddbc1af3e418023b1d2eec33fc79221?pvs=4">
+      <a id="events-card" onclick="navigate(this.id)" href="https://www.notion.so/iworkwithjack/Jack-s-Events-1ddbc1af3e418023b1d2eec33fc79221?pvs=4">
       <div class="card-icon">?</div>
       <div class="card-text">Attend an Event</div>
         </a>
     </div>
     <div class="card-button">
-      <a href="https://www.notion.so/iworkwithjack/Get-Free-CE-1ddbc1af3e41801aaec2c559975c5406?pvs=4">
+      <a id="ce-class" onclick="navigate(this.id)" href="https://www.notion.so/iworkwithjack/Get-Free-CE-1ddbc1af3e41801aaec2c559975c5406?pvs=4">
       <div class="card-icon">?</div>
       <div class="card-text">Get Free CE</div>
       </a>
     </div>
     <div class="card-button">
-      <a href="https://www.notion.so/iworkwithjack/Sponsorships-Presentations-1ddbc1af3e418099a3acf525cad7b7a0?pvs=4">
+      <a id="sponsorships" onclick="navigate(this.id)" href="https://www.notion.so/iworkwithjack/Sponsorships-Presentations-1ddbc1af3e418099a3acf525cad7b7a0?pvs=4">
       <div class="card-icon">?</div>
       <div class="card-text">Schedule Sponsorships & Presentations</div>
   </a>
@@ -124,9 +124,13 @@
 		function navigate(id) {
 
 			if (id == 'realtor-portal')
-				window.open("notion://iworkwithjack.notion.site/REALTOR-PARTNER-PORTAL-579f6cb4520a4c15a4b2714ff3ca54ae?pvs=4", '_blank').focus();
-			else if (id == "inbox")
-				window.open("https://www.notion.so/Quick-Note-9178f8f404234e6f9ee055371fe3e729", '_blank').focus();
+				window.open("https://iworkwithjack.notion.site/REALTOR-PARTNER-PORTAL-579f6cb4520a4c15a4b2714ff3ca54ae?pvs=4", '_blank').focus();
+			else if (id == "events-card")
+				window.open("https://www.notion.so/iworkwithjack/Jack-s-Events-1ddbc1af3e418023b1d2eec33fc79221?pvs=4", '_blank').focus();
+			else if (id == "ce-class") 
+				window.open("https://www.notion.so/iworkwithjack/Get-Free-CE-1ddbc1af3e41801aaec2c559975c5406?pvs=4", '_blank').focus();
+			else if (id == "sponsorships") 
+				window.open("https://www.notion.so/iworkwithjack/Sponsorships-Presentations-1ddbc1af3e418099a3acf525cad7b7a0?pvs=4", '_blank').focus();
 
 		}
 	</script>
