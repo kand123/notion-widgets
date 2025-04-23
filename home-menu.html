@@ -19,7 +19,7 @@
     }
     
     body {
-/*       background-color: #fff; */
+      background-color: #fff;
       padding: 30px;
       display: flex;
       flex-direction: column;
@@ -94,6 +94,24 @@
         grid-template-rows: repeat(4, 1fr);
       }
     }
+
+:where(body) {
+  --background-color: #FFF;
+  --text-color: #5E5E5E;
+}
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}	
+
+@media (prefers-color-scheme: dark) {
+  :where(body) {
+    --background-color: hsl(228, 5%, 15%);
+    --text-color: hsl(228, 5%, 80%);
+  }
+}
+	  
+	  
   </style>
 </head>
 <body>
