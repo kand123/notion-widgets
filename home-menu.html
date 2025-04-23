@@ -3,13 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Orange Card Style Buttons</title>
+  <title>Work With Jack</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
       font-family: 'Lato', 'Avenir Next Pro', Arial, sans-serif;
+      
     }
     
     body {
@@ -20,12 +26,15 @@
       min-height: 100vh;
       justify-content: center;
       align-items: center;
+      font-weight: 400;
+    font-style: normal;
     }
     
     h1 {
       text-align: center;
       margin-bottom: 40px;
       color: #333;
+      font-weight: 700;
     }
     
     /* Card Layout */
@@ -84,8 +93,8 @@
   
   <div class="button-cards">
     <div class="card-button">
-      <a href="https://iworkwithjack.notion.site/REALTOR-PARTNER-PORTAL-579f6cb4520a4c15a4b2714ff3ca54ae?pvs=4" target ="_blank">
-      <div class="card-icon">?</div>
+      <a id=realtor-portal onclick="navigate(this.id)" href="https://iworkwithjack.notion.site/REALTOR-PARTNER-PORTAL-579f6cb4520a4c15a4b2714ff3ca54ae?pvs=4" target ="_blank" >
+      <div class="card-icon"><i class="fa-solid fa-house"></i></div>
       <div class="card-text">Access Realtor Partner Portal</div>
       </a>
     </div>
@@ -108,5 +117,23 @@
   </a>
     </div>
   </div>
+
+  <script>
+
+
+		function navigate(id) {
+
+			if (id == 'realtor-portal')
+				window.open("https://www.notion.so/Personal-Home-11fb59d3ac8240618f17707c09b5cc14?pvs=4", '_blank').focus();
+			else if (id == "inbox")
+				window.open("https://www.notion.so/Quick-Note-9178f8f404234e6f9ee055371fe3e729", '_blank').focus();
+
+		}
+	</script>
+
+
+
+
+  
 </body>
 </html>
