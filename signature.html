@@ -1,8 +1,29 @@
+
+<head>
+
+ <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+
+
+
+
 <style>
 
+   * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Lato', 'Avenir Next Pro', Arial, sans-serif;
+    }
+
   a { 
-    padding: 2rem;
-    border: 1px solid black;
+    padding: 1rem;
+    border: 1px solid transparent;
     border-radius: 10px; 
     background-color: orange;
 text-decoration: none;
@@ -13,8 +34,8 @@ text-decoration: none;
   }
 .contact-buttons {
   display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr;
       gap: 30px;
       max-width: 666px;
       width: 100%;
@@ -29,6 +50,9 @@ text-decoration: none;
   
 </style>
 
+
+  </head>
+<body>
 <div class=contact-buttons>
 <a style="text-decoration:none;" href="sms:+18018303881">
   Text
@@ -44,5 +68,6 @@ text-decoration: none;
   Email
 </a>
 </div>
+  </body>
 
 
