@@ -1,5 +1,23 @@
+<style>
+.contact-buttons {
+  display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 30px;
+      max-width: 666px;
+      width: 100%;
+}
 
+  @media (max-width: 666px) {
+      .contact-buttons {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 1fr);
+      }
+    }
+  
+</style>
 
+<div class=contact-buttons>
 <a style="text-decoration:none;" href="sms:+18018303881">
   <button>Text</button>
 </a>
@@ -13,6 +31,6 @@
 <a style="text-decoration:none;" href="mailto:jack@edgehomes.com">
   <button>Email</button>
 </a>
-
+</div>
 
 
