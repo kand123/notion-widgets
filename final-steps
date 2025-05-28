@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your New Home Journey - Final Steps</title>
+            <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #F7941D 0%, #FF6B35 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        /* Print styles for PDF generation */
+        @media print {
+            body {
+                background: white !important;
+                padding: 0 !important;
+            }
+            .container {
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                max-width: none !important;
+                width: 100% !important;
+            }
+            .section:hover {
+                transform: none !important;
+                box-shadow: none !important;
+            }
+            .timeline-item:hover {
+                transform: none !important;
+            }
+        }
+        
+        @page {
+            margin: 0.5in;
+            size: letter;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+        
+        @keyframes shimmer {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(180deg); }
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 35px;
+            padding: 25px;
+            border-radius: 15px;
+            background: #f8f9fa;
+            border-left: 5px solid #F7941D;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(247, 148, 29, 0.15);
+        }
+        
+        .section-title {
+            font-size: 1.4rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+        }
+        
+        .section-title::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: #F7941D;
+            border-radius: 50%;
+            margin-right: 12px;
+            box-shadow: 0 0 10px rgba(247, 148, 29, 0.5);
+        }
+        
+        .section-content {
+            color: #555;
+            font-size: 1rem;
+        }
+        
+        .section-content p {
+            margin-bottom: 12px;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #F7941D 0%, #FFC107 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(247, 148, 29, 0.3);
+        }
+        
+        .warning {
+            background: linear-gradient(120deg, #DC3545 0%, #FF6B6B 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
+        }
+        
+        .contact-info {
+            background: linear-gradient(135deg, #F7941D 0%, #FF6B35 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .link {
+            color: #F7941D;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .link:hover {
+            border-bottom-color: #F7941D;
+            color: #E8841A;
+        }
+        
+        .timeline {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .timeline-item {
+            flex: 1;
+            min-width: 200px;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            border: 2px solid #e2e8f0;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-item:hover {
+            border-color: #F7941D;
+            transform: translateY(-3px);
+        }
+        
+        .timeline-number {
+            width: 30px;
+            height: 30px;
+            background: #F7941D;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 15px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content {
+                padding: 25px;
+            }
+            
+            .section {
+                padding: 20px;
+                margin-bottom: 25px;
+            }
+            
+            .timeline-item {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div style="margin-bottom: 20px;">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjgwIiB2aWV3Qm94PSIwIDAgMzAwIDgwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8Y2lyY2xlIGN4PSI0MCIgY3k9IjQwIiByPSI0MCIgZmlsbD0iI0Y3OTQxRCIvPgo8cmVjdCB4PSIxOCIgeT0iMTgiIHdpZHRoPSIzMCIgaGVpZ2h0PSI0IiBmaWxsPSJ3aGl0ZSIvPgo8cmVjdCB4PSIxOCIgeT0iMjgiIHdpZHRoPSIyNCIgaGVpZ2h0PSI0IiBmaWxsPSJ3aGl0ZSIvPgo8cmVjdCB4PSIxOCIgeT0iMzgiIHdpZHRoPSIzMCIgaGVpZ2h0PSI0IiBmaWxsPSJ3aGl0ZSIvPgo8cmVjdCB4PSIxOCIgeT0iNDgiIHdpZHRoPSIyNCIgaGVpZ2h0PSI0IiBmaWxsPSJ3aGl0ZSIvPgo8cmVjdCB4PSIxOCIgeT0iNTgiIHdpZHRoPSIzMCIgaGVpZ2h0PSI0IiBmaWxsPSJ3aGl0ZSIvPgo8dGV4dCB4PSI5MCIgeT0iMzUiIGZpbGw9IiM0NDREU0QiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNCIgZm9udC13ZWlnaHQ9ImJvbGQiPkVER0U8L3RleHQ+Cjx0ZXh0IHg9IjE4NCIgeT0iMzUiIGZpbGw9IiNGNzk0MUQiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNCIgZm9udC13ZWlnaHQ9ImJvbGQiPmhvbWVzPC90ZXh0Pgo8dGV4dCB4PSI5MCIgeT0iNTUiIGZpbGw9IiM3Nzc3NzciIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMiIgbGV0dGVyLXNwYWNpbmc9IjJweCIgZm9udC13ZWlnaHQ9IjMwMCI+REVTSUDORX0gt4IyBMT1IgIExJRkU8L3RleHQ+Cjwvc3ZnPg==" alt="EDGEhomes Logo" style="max-width: 250px; height: auto;">
+            </div>
+            <h1>🎉 Congratulations!</h1>
+            <p>Your dream home is almost ready. Here's everything you need to know for the final steps.</p>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <h2 class="section-title">🏠 Homeowner Orientation</h2>
+                <div class="section-content">
+                    <div class="highlight">
+                        <strong>Scheduled:</strong> No less than 2 business days before your closing date
+                    </div>
+                    <p>Our Customer Service Team will contact you to schedule your orientation. This isn't a "blue tape walk" – our Construction Management Team has already handled all necessary touch-ups!</p>
+                    <p><strong>What to expect:</strong> A comprehensive walkthrough covering operation and maintenance of your new home.</p>
+                    <p><strong>Who can attend:</strong> Contract signers and your Buyer's Agent are welcome.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">⚡ Transfer Utilities</h2>
+                <div class="section-content">
+                    <p>Transfer utilities to your name effective on closing day to avoid service interruptions.</p>
+                    <div class="highlight">
+                        Need utility provider information? Contact me for community-specific details.
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">💰 Final Purchase Price</h2>
+                <div class="section-content">
+                    <p>Work with your EDGEhomes Agent and lender to verify your final purchase price before closing.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">📋 Review Seller Disclosure Documents</h2>
+                <div class="section-content">
+                    <p>Important documents are available in your Dropbox folder. Please review all materials as updates may have been added since contract acceptance.</p>
+                    <div class="highlight">
+                        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+                            <span><strong>Action Required:</strong> Review all disclosures, waivers, and property information before closing.</span>
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMTUiIHZpZXdCb3g9IjAgMCA0MCAxNSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iNy41IiBjeT0iNy41IiByPSI3LjUiIGZpbGw9IndoaXRlIi8+CjxyZWN0IHg9IjMiIHk9IjMiIHdpZHRoPSI5IiBoZWlnaHQ9IjEuNSIgZmlsbD0iI0Y3OTQxRCIvPgo8cmVjdCB4PSIzIiB5PSI2IiB3aWR0aD0iNyIgaGVpZ2h0PSIxLjUiIGZpbGw9IiNGNzk0MUQiLz4KPHJlY3QgeD0iMyIgeT0iOSIgd2lkdGg9IjkiIGhlaWdodD0iMS41IiBmaWxsPSIjRjc5NDFEIi8+Cjx0ZXh0IHg9IjE5IiB5PSIxMSIgZmlsbD0id2hpdGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSI4IiBmb250LXdlaWdodD0iYm9sZCI+RURHRWhvbWVzPC90ZXh0Pgo8L3N2Zz4=" alt="EDGEhomes" style="opacity: 0.7;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">📅 Closing Date Extensions</h2>
+                <div class="section-content">
+                    <div class="warning">
+                        <strong>Important:</strong> Late fees apply if you cannot close by your scheduled date. Extensions require signed addendum and are approved at Seller's discretion.
+                    </div>
+                    <p>Contact me immediately if you need an extension to avoid contract default.</p>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">🗝️ Getting Your Keys</h2>
+                <div class="section-content">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-number">1</div>
+                            <h4>First Colony Mortgage</h4>
+                            <p>Receive keys immediately after signing closing documents</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-number">2</div>
+                            <h4>Other Lenders</h4>
+                            <p>Pick up keys from EDGEhomes Corporate Office after funding and recording</p>
+                        </div>
+                    </div>
+                    <div class="highlight">
+                        <div style="display: flex; align-items: center; justify-content: space-between;">
+                            <div>
+                                <strong>Office Hours:</strong> 9am - 5pm, Monday - Friday<br>
+                                <em>Call ahead to confirm availability</em>
+                            </div>
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMTUiIHZpZXdCb3g9IjAgMCA0MCAxNSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iNy41IiBjeT0iNy41IiByPSI3LjUiIGZpbGw9IndoaXRlIi8+CjxyZWN0IHg9IjMiIHk9IjMiIHdpZHRoPSI5IiBoZWlnaHQ9IjEuNSIgZmlsbD0iI0Y3OTQxRCIvPgo8cmVjdCB4PSIzIiB5PSI2IiB3aWR0aD0iNyIgaGVpZ2h0PSIxLjUiIGZpbGw9IiNGNzk0MUQiLz4KPHJlY3QgeD0iMyIgeT0iOSIgd2lkdGg9IjkiIGhlaWdodD0iMS41IiBmaWxsPSIjRjc5NDFEIi8+Cjx0ZXh0IHg9IjE5IiB5PSIxMSIgZmlsbD0id2hpdGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSI4IiBmb250LXdlaWdodD0iYm9sZCI+RURHRWhvbWVzPC90ZXh0Pgo8L3N2Zz4=" alt="EDGEhomes" style="opacity: 0.7;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">📮 Mailbox Keys</h2>
+                <div class="section-content">
+                    <p>After closing, contact your nearest Post Office for mailbox key information.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">🏘️ HOA Information</h2>
+                <div class="section-content">
+                    <p><strong>Management:</strong> FCS Community Management</p>
+                    <p>The Title Company will notify the HOA of your purchase. Within a few weeks of closing, FCS will contact you directly with:</p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>HOA account setup information</li>
+                        <li>Billing details</li>
+                        <li>Amenity access instructions</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">🔧 Customer Service Requests</h2>
+                <div class="section-content">
+                    <p>Once you're settled in your new home, submit any service requests through our website:</p>
+                    <div class="highlight">
+                        <div style="display: flex; align-items: center; justify-content: space-between;">
+                            <div>
+                                <a href="https://www.edgehomes.com/warranty-request/" class="link" target="_blank" style="color: white; font-size: 1.1rem;">
+                                    Submit Warranty Request →
+                                </a>
+                            </div>
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMTUiIHZpZXdCb3g9IjAgMCA0MCAxNSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iNy41IiBjeT0iNy41IiByPSI3LjUiIGZpbGw9IndoaXRlIi8+CjxyZWN0IHg9IjMiIHk9IjMiIHdpZHRoPSI5IiBoZWlnaHQ9IjEuNSIgZmlsbD0iI0Y3OTQxRCIvPgo8cmVjdCB4PSIzIiB5PSI2IiB3aWR0aD0iNyIgaGVpZ2h0PSIxLjUiIGZpbGw9IiNGNzk0MUQiLz4KPHJlY3QgeD0iMyIgeT0iOSIgd2lkdGg9IjkiIGhlaWdodD0iMS41IiBmaWxsPSIjRjc5NDFEIi8+Cjx0ZXh0IHg9IjE5IiB5PSIxMSIgZmlsbD0id2hpdGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSI4IiBmb250LXdlaWdodD0iYm9sZCI+RURHRWhvbWVzPC90ZXh0Pgo8L3N2Zz4=" alt="EDGEhomes" style="opacity: 0.7;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-info">
+                <h3>❓ Have Questions?</h3>
+                <p>Contact me for any additional information or assistance.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
